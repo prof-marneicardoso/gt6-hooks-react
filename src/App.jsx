@@ -23,6 +23,17 @@ export default function App() {
 
   // TESTE
   const [contador, setContador] = useState(0);
+
+  const [valor, setValor] = useState(0);
+  
+  function setValorMinimo(valorInformado) {
+    console.log(valorInformado);
+
+    if (valorInformado < 0) {
+      setValor(0);
+      console.log(valor);
+    }
+  }
   
   return (
     <>
@@ -47,6 +58,9 @@ export default function App() {
           Contar
       </button>
 
+      <input type="number" min={0} onChange={(evento) => setValorMinimo(evento.target.value)} />
+
+      {/* setValor((valor) => valor)} /> */}
       <h3 id="cont">
         {contador}
       </h3>

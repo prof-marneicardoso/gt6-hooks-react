@@ -30,6 +30,7 @@
     animation-direction: normal;
 }
 
+/* Animação em CSS */
 @keyframes toast {
     from {
         opacity: 0;
