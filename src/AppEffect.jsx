@@ -7,10 +7,12 @@ export default function AppEffect() {
     // Aqui é JavaScript
     const [usuarios, setUsuarios] = useState([]);
     const [loading, setLoading] = useState(true);
+    // const url = 'https://jsonplaceholder.typicode.com/users';
+    const url = 'https://marneicardoso.com/api/';
 
     useEffect(() => {
         async function buscarDados() {
-            const response = await fetch('https://jsonplaceholder.typicode.com/users');
+            const response = await fetch(url);
             const data = await response.json();
             setUsuarios(data);
             setLoading(false);
@@ -33,9 +35,19 @@ export default function AppEffect() {
 
             <ul>
                 {usuarios.map(usuario => (
-                    <li key={usuario.id}>{usuario.name}</li>
+                    <li key={usuario.id_produto}>
+                        Nome: {usuario.nome_produto},
+                        Descrição: {usuario.descricao_produto},
+                        R$ {(usuario.valor_produto)}
+                    </li>
                 ))}
             </ul>
+
+            {/* <ul>
+                {usuarios.map(usuario => (
+                    <li key={usuario.id}>{usuario.name}</li>
+                ))}
+            </ul> */}
         </div>
     );
 }
